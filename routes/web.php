@@ -15,9 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'loginPost'])->name('login.post');
 
-Route::get('/', [App\Http\Controllers\AdminController::class, 'log']);
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin_layout']);
+Route::get('/signin', [App\Http\Controllers\LoginController::class, 'create'])->name('signin');
+Route::post('/signin', [App\Http\Controllers\LoginController::class, 'store'])->name('signin.post');
+
+
+
+
+
+
+
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin_layout'])->name('admin');
 Route::post('/admin_layout', [App\Http\Controllers\AdminController::class, 'dashboard']);
 Route::get('/logout', [App\Http\Controllers\AdminController::class, 'logout']);
 
